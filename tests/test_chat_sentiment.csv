@@ -1,0 +1,4 @@
+message,sentiment
+"Hello, how are you?",positive
+"I'm not feeling great today.",negative
+"Let's meet at 5 pm.",neutral
