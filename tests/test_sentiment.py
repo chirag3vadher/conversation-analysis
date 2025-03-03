@@ -2,13 +2,25 @@ import pytest
 import pandas as pd
 from src.sentiment import analyze_sentiment, add_sentiment_column
 
+from nltk.sentiment import SentimentIntensityAnalyzer
+sia = SentimentIntensityAnalyzer()
+
 def test_analyze_sentiment():
     """Test sentiment classification."""
-    assert analyze_sentiment("I love this product!") == "positive"
-    assert analyze_sentiment("This is the worst experience ever.") == "negative"
-    assert analyze_sentiment("It's okay, I guess.") == "neutral"
-    assert analyze_sentiment("") == "neutral"
-    assert analyze_sentiment(None) == "neutral"
+    test_cases = [
+        ("I love this product!", "positive"),
+        ("This is the worst experience ever.", "negative"),
+        ("It's okay, I guess.", "neutral"),
+        ("", "neutral"),
+        (None, "neutral"),
+    ]
+
+    for text, expected in test_cases:
+        score = sia.polarity_scores(text)["compound"] if text else 0
+        predicted = analyze_sentiment(text)
+        print(f"Text: {text}, Score: {score}, Predicted: {predicted}, Expected: {expected}")
+        assert predicted == expected
+
 
 @pytest.fixture
 def sample_dataframe():
