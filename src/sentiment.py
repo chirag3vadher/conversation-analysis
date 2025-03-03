@@ -19,9 +19,9 @@ def analyze_sentiment(text: str) -> str:
 
     score = sia.polarity_scores(text)["compound"]
 
-    if score >= 0.05:
+    if score >= 0.25:
         return "positive"
-    elif score <= -0.05:
+    elif score <= -0.25:
         return "negative"
     else:
         return "neutral"
