@@ -99,21 +99,6 @@ curl -X 'POST' 'http://127.0.0.1:8000/analyze/' \
 ```json  
 {"text": "I love this product!", "sentiment": "positive"}  
 ```  
-
----  
-
-## 📌 Contributing  
-Want to improve this project?  
-1. **Fork the repo** 📌  
-2. **Create a new branch** 🔄  
-3. **Make changes & test** 🛠️  
-4. **Submit a Pull Request** 🚀  
-
----  
-
-## 📌 License  
-This project is **open-source** under the **MIT License**.  
-
 ---  
 
 ### 🔥 Now you’re all set!  
